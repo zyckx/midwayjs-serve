@@ -8,10 +8,10 @@ import * as captcha from '@midwayjs/captcha';
 import * as cache from '@midwayjs/cache';
 import * as crossDomain from '@midwayjs/cross-domain';
 import * as upload from '@midwayjs/upload';
-
+import * as swagger from '@midwayjs/swagger';
 import { join } from 'path';
-// import { DefaultErrorFilter } from './filter/default.filter';
-// import { NotFoundFilter } from './filter/notfound.filter';
+import { DefaultErrorFilter } from './filter/default.filter';
+import { NotFoundFilter } from './filter/notfound.filter';
 import { ReportMiddleware } from './middleware/report.middleware';
 import { AuthMiddleware } from './middleware/auth.middleware';
 import * as view from '@midwayjs/view-nunjucks';
@@ -27,7 +27,7 @@ import * as view from '@midwayjs/view-nunjucks';
     upload,
     cache,
     crossDomain,
-
+    swagger,
     {
       component: info,
       enabledEnvironment: ['local'],
@@ -43,7 +43,7 @@ export class MainConfiguration {
     // add middleware
     this.app.useMiddleware([ReportMiddleware, AuthMiddleware]);
     // add filter
-    // this.app.useFilter([NotFoundFilter, DefaultErrorFilter]);
+    this.app.useFilter([NotFoundFilter, DefaultErrorFilter]);
     // this.app.useFilter([WeatherErrorFilter]);
   }
 }

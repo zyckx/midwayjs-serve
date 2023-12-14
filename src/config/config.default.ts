@@ -20,7 +20,7 @@ export default {
         host: '127.0.0.1',
         port: 3306,
         username: 'root',
-        password: 'root',
+        password: 'admin123',
         database: 'midway_test',
         synchronize: true, // 如果第一次使用，不存在表，有同步的需求可以写 true，注意会丢数据
         logging: false,

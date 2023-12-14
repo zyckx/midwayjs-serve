@@ -14,6 +14,7 @@
     "@midwayjs/jwt": "^3.12.8",
     "@midwayjs/koa": "^3.12.0",
     "@midwayjs/logger": "^2.14.0",
+    "@midwayjs/swagger": "^3.13.5",
     "@midwayjs/typeorm": "^3.12.8",
     "@midwayjs/upload": "^3.13.5",
     "@midwayjs/validate": "^3.12.8",
@@ -21,6 +22,7 @@
     "bcryptjs": "^2.4.3",
     "cache-manager": "^5.3.1",
     "mysql2": "^3.6.5",
+    "swagger-ui-dist": "^5.10.3",
     "typeorm": "^0.3.17"
   },
   "devDependencies": {

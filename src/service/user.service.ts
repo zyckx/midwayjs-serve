@@ -35,10 +35,7 @@ export class UserService {
     if (!user) {
       return '用户不存在';
     }
-    const isPasswordValid = bcryptjs.compareSync(
-      body.password,
-      user.password
-    );
+    const isPasswordValid = bcryptjs.compareSync(body.password, user.password);
     if (!isPasswordValid) {
       return '密码错误';
     }
@@ -81,7 +78,10 @@ export class UserService {
       return '注册成功';
     }
   }
-
+  async Merchant(body) {
+    console.log(body);
+    return '!1';
+  }
   async getCaptcha() {
     const { id, imageBase64 } = await this.captchaService.image({
       width: 120,
