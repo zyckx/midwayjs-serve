@@ -3,7 +3,7 @@ export const DEFAULT_ERROR_CODE = 900;
 
 export interface IResult<T = any> {
   data?: T;
-  code?: number;
+  code?: number | string;
   message?: string;
 }
 

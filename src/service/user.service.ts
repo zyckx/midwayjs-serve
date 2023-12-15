@@ -7,6 +7,7 @@ import { CacheManager } from '@midwayjs/cache';
 import * as bcryptjs from 'bcryptjs';
 import { UserLoginDto } from '../dto/user';
 import { User } from '../entity/user.entity';
+import { CustomHttpError } from '../error/customHttp.error';
 
 @Provide()
 export class UserService {
@@ -25,7 +26,7 @@ export class UserService {
   async login(body: UserLoginDto) {
     const passed = await this.captchaService.check(body.captchaId, body.code);
     if (!passed) {
-      return '验证码错误';
+      throw new CustomHttpError('验证码错误', 408);
     }
     const user = await this.userModal.findOne({
       where: {
@@ -33,7 +34,8 @@ export class UserService {
       },
     });
     if (!user) {
-      return '用户不存在';
+      // return '用户不存在';
+      throw new CustomHttpError('用户不存在', 408);
     }
     const isPasswordValid = bcryptjs.compareSync(body.password, user.password);
     if (!isPasswordValid) {
